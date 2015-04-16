@@ -103,7 +103,12 @@
 
         $this->widget('zii.widgets.grid.CGridView', array(
             'id'=>'api-history-grid',
-            'dataProvider'=>new CArrayDataProvider($model->histories,array(
+            'dataProvider'=>new CArrayDataProvider(
+                History::model()->findAllByAttributes(
+                    array('api_id'=>$model->id),
+                    array('order'=>'create_time DESC','limit'=>'100')
+                ),
+                array(
                     'id'=>'history',
                     'sort'=>array(
                         'attributes'=>array('create_time'),

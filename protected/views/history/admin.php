@@ -50,10 +50,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
                     'urlExpression'=>'Yii::app()->createUrl("history/update",array("id"=>$data->id))',
                 ),
                 array(
-                    'class'=>'CLinkColumn',
-                    'header'=>'Api',
-                    'labelExpression'=>'$data->api->name."<br>".($data->url==""?"empty":"[".$data->url."]")',
-                    'urlExpression'=>'Yii::app()->createUrl("api/update",array("id"=>$data->api_id))',
+                    'name' => 'url',
+                    'header' => 'Api',
+                    'type' => 'raw',
+                    'value' => 'CHtml::link(Yii::app()->format->formatNtext($data->url),Yii::app()->createUrl("api/update",array("id"=>$data->api_id)))'
                 ),
                 'name',
 		'ip',

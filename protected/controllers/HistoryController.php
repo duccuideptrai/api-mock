@@ -165,6 +165,7 @@ class HistoryController extends Controller
                     $api=Api::model()->findByAttributes(array('name'=>Yii::app()->params['default_api_name']));
                 
                 $model->api_id=$api->id;
+                $model->url=$api->name."\n[".$model->url.']';
                 
                 if(($option=$api->currentOption)!==null){
                     if($option->delay>0)
@@ -286,11 +287,12 @@ class HistoryController extends Controller
 	public function actionAdmin()
 	{
 		$model=new History('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['History']))
-			$model->attributes=$_GET['History'];
+		$model->dbCriteria->order='create_time desc, id desc';
+		// $model->unsetAttributes();  // clear any default values
+		// if(isset($_GET['History']))
+		// 	$model->attributes=$_GET['History'];
 
-                $model->dbCriteria->order='create_time desc, id desc';
+  //               $model->dbCriteria->order='create_time desc, id desc';
 		$this->render('admin',array(
 			'model'=>$model,
 		));

@@ -109,4 +109,14 @@ class History extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	public function behaviors() {
+       return array(
+           'ERememberFiltersBehavior' => array(
+               'class' => 'application.components.ERememberFiltersBehavior',
+               'defaults'=>array(),           /* optional line */
+               'defaultStickOnClear'=>false   /* optional line */
+           ),
+       );
+	}
 }

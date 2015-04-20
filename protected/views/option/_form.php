@@ -36,7 +36,7 @@
         <div id="passthrough">
             <div class="row">
                     <?php echo $form->labelEx($model,'url_passthrough'); ?>
-                    <?php echo $form->textField($model,'url_passthrough',array('style'=>'width:100%')); ?>
+                    <?php echo $form->textField($model,'url_passthrough',array('size'=>100)); ?>
                     <?php echo $form->error($model,'url_passthrough'); ?>
             </div>
         </div>
@@ -113,7 +113,8 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array('class' => 'btn_submit')); ?>
+        <?php echo CHtml::Button('Cancel', array('submit' => array('api/update','id'=>$model->api_id), 'class' => 'btn_cancel')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

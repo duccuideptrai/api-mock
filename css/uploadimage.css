@@ -1,0 +1,124 @@
+/* 
+    Document   : uploadimage
+    Created on : Dec 23, 2013, 11:33:17 AM
+    Author     : User
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.clear {
+    width: 0;
+    height: 0;
+    clear: both;
+}
+
+.uploadimage {
+    width: 94.5%;
+    max-height: 662px;
+    overflow-y: auto;
+    border: 7px dashed #ccc;
+    float: left;
+}
+
+.box-upload, .box-image {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    vertical-align: baseline;
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: 1px 1px 0 #fff;
+    box-shadow: inset 0 0 12px #d8d8d8;
+    -moz-box-shadow:  inset 0 0 12px #d8d8d8;
+    -webkit-box-shadow:  inset 0 0 12px #d8d8d8;
+    -o-box-shadow:  inset 0 0 12px #d8d8d8;
+    -ms-box-shadow:  inset 0 0 12px #d8d8d8;
+    background-color: #f1f1f1;
+}
+
+.item {
+    position: relative;
+    float: left;
+}
+
+.hover{
+    border-color: #777;
+    background-color: #dbdbdb;
+}
+
+.upload {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+.uploadbtn, .item-image {
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.item-image img {
+    padding-top: 10px;
+    width: 180px;
+    height: 180px;
+}
+
+.uploadbtn input {
+    background: url("../img/add.png") center center no-repeat transparent;
+    width: 200px;
+    height: 200px;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+}
+
+.button-close {
+    background: url("../img/close.png") center center no-repeat transparent;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.upload-single-img {
+    width: 700px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.single-item img {
+    position: relative;
+    z-index: 5;
+}
+
+.singleuploadbtn {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
+
+.singleImg:hover {
+    z-index: 0 !important;
+}
+
+.singleuploadbtn:hover {
+    z-index: 10 !important;
+}
+
+.disable-btn-add {
+     background: url("../img/disable.png") center center no-repeat transparent !important;
+}
+
+.disable-btn-add:hover {
+     background: url("../img/add.png") no-repeat scroll center center rgba(0, 0, 0, 0) !important;
+}
+
+.dropbox, .box-image {
+    margin-left: 140px !important;
+}

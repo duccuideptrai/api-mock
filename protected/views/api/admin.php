@@ -1,15 +1,19 @@
 <?php
 /* @var $this ApiController */
 /* @var $model Api */
+$this->breadcrumbs = array(
+    'Apis' => array('admin'),
+    'Manage',
+);
 
 $this->menu=array(
 	array('label'=>'Create Api', 'url'=>array('create')),
 );
 ?>
-
-<h1>Manage Api</h1>
-
-
+<div class="blk-note">
+    <h1>Manage Api</h1>
+    <p class="desc"></p>
+</div>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'api-grid',
@@ -21,7 +25,7 @@ $this->menu=array(
 	'columns'=>array(
                 array(
                     'class'=>'CLinkColumn',
-                    'header'=>'id',
+                    'header'=>'Id',
                     'labelExpression'=>'$data->id',
                     'urlExpression'=>'Yii::app()->createUrl("api/update",array("id"=>$data->id))',
                 ),
@@ -33,23 +37,25 @@ $this->menu=array(
                 ),
                 array(
                     'class'=>'CDataColumn',
-                    'header'=>'current_option',
+                    'header'=>'Current_option',
                     'type'=>'raw',
                     'value'=>'$data->currentOption!=null?CHtml::dropDownList("current_option", $data->currentOption,  CHtml::listData($data->options, "id", "name"), array("style"=>"width:100%")):""'
                 ),
                 array(
                     'class'=>'CButtonColumn',
-                    'template'=>'{duplicate} {delete}',
+                    'template'=>'{duplicate}{delete}',
                     'buttons'=> array(
                         'delete'=>array(
-                            'visible'=>'$data->name!=Yii::app()->params["default_api_name"]?true:false'
+                            'visible'=>'$data->name!=Yii::app()->params["default_api_name"]?true:false',
+                            'imageUrl'=>Yii::app()->request->baseUrl."/img/icon_delete.png"
                         ),
                         'duplicate'=>array(
                             'label'=>'duplicate',
-                            'imageUrl'=>Yii::app()->request->baseUrl."/images/copy.png",
+                            'imageUrl'=>Yii::app()->request->baseUrl."/img/icon_add.png",
                             'url'=>'Yii::app()->createUrl("api/duplicate",array("id"=>$data->id))',
                         ),
-                    )
+                    ),
+                    'htmlOptions' => array('class' => 'gv-button')
 		),
 	),
 )); 

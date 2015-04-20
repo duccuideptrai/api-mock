@@ -14,7 +14,10 @@ $this->menu=array(
     array('label'=>'Duplicate', 'url'=>array('api/duplicate','id'=>$model->id)),
 );
 ?>
+<div class="blk-note">
+    <h1>Update Api <?php echo $model->name; ?></h1>
+    <p class="desc"></p>
+</div>
 
-<h1>Update Api <?php echo $model->name; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

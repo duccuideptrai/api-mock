@@ -12,6 +12,9 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Api</h1>
+<div class="blk-note">
+    <h1>Create Api</h1>
+    <p class="desc"></p>
+</div>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

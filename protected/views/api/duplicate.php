@@ -12,6 +12,10 @@ $this->menu=array(
 );
 ?>
 
-<h1>Duplicate Api <?=$srcModel->name?></h1>
+<div class="blk-note">
+    <h1>Duplicate Api <?=$srcModel->name?></h1>
+    <p class="desc"></p>
+</div>
+
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -7,7 +7,9 @@ $this->breadcrumbs=array(
 	'Update',
 );
 ?>
-
-<h1>Update Option <?php echo $model->id; ?></h1>
+<div class="blk-note">
+	<h1>Update Option <?php echo $model->id; ?></h1>
+    <p class="desc"></p>
+</div>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -94,7 +94,8 @@
                         'template'=>'{delete}',
                         'buttons'=> array(
                             'delete'=> array(
-                                'url'=>'Yii::app()->createUrl("option/delete", array("id"=>$data->id))'
+                                'url'=>'Yii::app()->createUrl("option/delete", array("id"=>$data->id))',
+                                'imageUrl'=>Yii::app()->request->baseUrl."/img/icon_delete.png"
                             )
                         )
                     ),

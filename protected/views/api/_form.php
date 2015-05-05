@@ -111,10 +111,10 @@
                 ),
                 array(
                     'id'=>'history',
-                    'sort'=>array(
+                    /*'sort'=>array(
                         'attributes'=>array('create_time'),
                         'defaultOrder'=>array('create_time'=>CSort::SORT_DESC),
-                    ),
+                    ),*/
                     'pagination'=>array(
                         'pageSize'=>20,
                     ),

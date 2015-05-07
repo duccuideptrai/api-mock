@@ -189,7 +189,14 @@ class HistoryController extends Controller
                                 $_SERVER['HTTP_USER_AGENT'], $_SERVER['HTTP_COOKIE'], '', 
                                 $res_status, $res_cookies, $res_content, $res_header);
                     }
-                    else{
+                    else if($option->is_response_php){
+                        	ob_start();
+                        	eval($option->response_php);
+						    $res_content = ob_get_contents();
+						    ob_end_clean();
+						    $res_header=implode("\n", headers_list());
+                    }
+                    else {
                         if ($option->custom_header) {
                         	$res_header=$option->response_header;
                         }
@@ -197,17 +204,7 @@ class HistoryController extends Controller
                         	$res_header='HTTP/1.1 '.$option->http_code;
                         	$res_header.=$option->is_json?"\nContent-type: application/json":"\nContent-type: text/html";
                         }
-
-                        if($option->is_response_php){
-                        	ob_start();
-                        	eval($option->response_php);
-						    $res_content = ob_get_contents();
-						    ob_end_clean();
-
-                        }
-                        else{
-                        	$res_content=$option->reponse_data;
-                        }
+                        $res_content=$option->reponse_data;
                     }
                     
                     $aHeader=explode("\n", preg_replace('/(Set-Cookie: .*?);.*/', '$1', $res_header));

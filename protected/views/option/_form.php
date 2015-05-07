@@ -33,22 +33,38 @@
 		<?php echo $form->error($model,'is_passthrough'); ?>
 	</div>
         
-        <div id="passthrough">
-            <div class="row">
-                    <?php echo $form->labelEx($model,'url_passthrough'); ?>
-                    <?php echo $form->textField($model,'url_passthrough',array('size'=>100)); ?>
-                    <?php echo $form->error($model,'url_passthrough'); ?>
-            </div>
-        </div>
-        
+    <div id="passthrough">
         <div class="row">
-                <?php echo $form->labelEx($model,'delay'); ?>
-                <?php echo $form->textField($model,'delay'); ?>
-                <?php echo $form->error($model,'delay'); ?>
+                <?php echo $form->labelEx($model,'url_passthrough'); ?>
+                <?php echo $form->textField($model,'url_passthrough',array('size'=>100)); ?>
+                <?php echo $form->error($model,'url_passthrough'); ?>
         </div>
-        
-        <div id="not_passthrough">
+    </div>
+    
+    <div class="row">
+            <?php echo $form->labelEx($model,'delay'); ?>
+            <?php echo $form->textField($model,'delay'); ?>
+            <?php echo $form->error($model,'delay'); ?>
+    </div>
+    
+    <div id="not_passthrough">
 
+        <div class="row">
+            <?php echo $form->labelEx($model,'is_response_php'); ?>
+            <?php echo $form->checkbox($model,'is_response_php'); ?>
+            <?php echo $form->error($model,'is_response_php'); ?>
+        </div>
+
+        <div id="is_response_php">
+
+            <div class="row">
+                    <?php echo $form->labelEx($model,'response_php'); ?>
+                    <?php echo $form->textArea($model,'response_php',array('rows'=>6, 'cols'=>50)); ?>
+                    <?php echo $form->error($model,'response_php'); ?>
+            </div>
+
+        </div>
+        <div id="not_response_php">
             <div class="row">
                 <?php echo $form->labelEx($model,'custom_header'); ?>
                 <?php echo $form->checkbox($model,'custom_header'); ?>
@@ -80,31 +96,14 @@
                 </div>
 
             </div>
-
+            
             <div class="row">
-                <?php echo $form->labelEx($model,'is_response_php'); ?>
-                <?php echo $form->checkbox($model,'is_response_php'); ?>
-                <?php echo $form->error($model,'is_response_php'); ?>
-            </div>
-
-            <div id="is_response_php">
-
-                <div class="row">
-                        <?php echo $form->labelEx($model,'response_php'); ?>
-                        <?php echo $form->textArea($model,'response_php',array('rows'=>6, 'cols'=>50)); ?>
-                        <?php echo $form->error($model,'response_php'); ?>
-                </div>
-
-            </div>
-
-            <div id="not_response_php">
-                <div class="row">
-                        <?php echo $form->labelEx($model,'reponse_data'); ?>
-                        <?php echo $form->textArea($model,'reponse_data',array('rows'=>6, 'cols'=>50)); ?>
-                        <?php echo $form->error($model,'reponse_data'); ?>
-                </div>
+                    <?php echo $form->labelEx($model,'reponse_data'); ?>
+                    <?php echo $form->textArea($model,'reponse_data',array('rows'=>6, 'cols'=>50)); ?>
+                    <?php echo $form->error($model,'reponse_data'); ?>
             </div>
         </div>
+    </div>
         
 	<div class="row">
 		<?php echo $form->labelEx($model,'order'); ?>

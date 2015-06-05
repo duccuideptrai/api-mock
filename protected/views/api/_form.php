@@ -131,7 +131,17 @@
                     'method',
                     'create_time'
             ),
-     )); 
+    ));
+    Yii::app()->getClientScript()->registerScript(
+        'update-current-option',
+        '
+            $("#api-form").submit(function(){
+                $("#current_option").val($("#api-option-grid").yiiGridView("getChecked", "selecting-option"));
+            });
+        ',
+        CClientScript::POS_END
+    ); 
+    
     }
     ?>
         
@@ -141,15 +151,4 @@
 	</div>
 
 <?php $this->endWidget(); ?>
-<?php 
-    Yii::app()->getClientScript()->registerScript(
-        'update-current-option',
-        '
-            $("#api-form").submit(function(){
-                $("#current_option").val($("#api-option-grid").yiiGridView("getChecked", "selecting-option"));
-            });
-        ',
-        CClientScript::POS_END
-        ); 
-?>
 </div><!-- form -->

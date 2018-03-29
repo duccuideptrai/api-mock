@@ -151,7 +151,14 @@ class HistoryController extends Controller
                 
                 //COOKIES
                 if(count($_COOKIE)) $request.="\r\n\r\n=============COOKIES Params==========================================\r\nCOOKIES Params ".var_export($_COOKIE,true);
-                
+
+                //JSON
+                if(strpos($_SERVER['CONTENT_TYPE'], 'application/json') !== false) {
+                    $json_string = file_get_contents('php://input');
+                    $obj = json_decode($json_string, true);
+                    $request.="\r\n\r\n=============JSON Params==========================================\r\nJSON Params ".var_export($obj,true);
+                }
+
                 $files=array();
                 if(count($_FILES)>0){
                     foreach ($_FILES as $kfile=>$file) {
